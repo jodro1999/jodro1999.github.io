@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+<head>
+	<meta charset="utf-8">
+	<title>Proyecto Final</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<script src="jquery-3.3.1.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    
+    .content {
+    margin: 0 auto;
+    max-width: 1180px;
+    padding: .75rem;
+	}
+	.mat{
+		border: solid 1px;
+		border-color: white;
+	}
+  .navbar-default{
+    color:black;
+  }
+	.fixed.btn.menu{
+		left: 1800px;
+		top: 30px;
+		max-width: 54px;
+		padding: 5px 0;
+		background-color: transparent;
+		border: none;
+		position: relative;
+		position: fixed;
+		top: 0;
+	}
+	.btn{
+		color: white;
+		margin-left: .375rem;
+		margin-right: .375rem;
+	}
+	.subnav{
+		text-align: center;
+	}
+	.section{
+		display: block;
+	}
+	.subnav.btn{
+		margin: .375rem;
+	}
+	.h1{
+		text-align: center;
+	}
+	.filter-triggers{
+		display: block;
+	}
+	.option{
+		font-weight: normal;
+		display: block;
+		white-space: pre;
+		min-height: 1.2rem;
+		padding: 0px 2px 1px;
+	}
+	.select{
+		display: inline-block;
+		line-height: 1;
+		color: black;
+		text-transform: none;
+		vertical-align: middle;
+		background-color: black;
+		padding: .3rem .1rem;
+	}
+	.select{
+		-webkit-appearance: menulist;
+		box-sizing: border-box;
+		align-items: center;
+		white-space: pre;
+		color: black;
+		cursor: default;
+		background-color: white;
+		border-width: 1px;
+		border-style: solid;
+		border-color: initial;
+		border-image: initial;
+	}
+	.select{
+		text-rendering: auto;
+		color: initial;
+		letter-spacing: normal;
+		word-spacing: normal;
+		text-transform: none;
+		text-indent: 0px;
+		text-shadow: none;
+		display: inline-block;
+		text-align: start;
+		margin: 0em;
+		font: 400 13.3333px Arial;
+	}
+	.select{
+		-webkit-writing-mode: horizontal-tb !importan;
+	}
+	.filter.label{
+		display: block;
+		width: 100%;
+		align-items: center;
+    padding-bottom: 1rem;
+    font-size: .7em;
+		
+	}
+  .filter{
+    color: gray;
+  }
+	.desktop ::-webkit-scrollbar{
+		width: 8px;
+		height: 8px;
+	}
+	.desktop ::-webkit-scrollbar-thumb{
+		border-radius: 10px;
+    color: gray;
+	}
+	.desktop ::-webkit-scrollbar-track{
+		border-radius: 0;
+		border: 0;
+	}
+  .row{
+    position: relative;
+    left: 150px;
+  }
+  </style>
+</head>
+<body>
+	
+<nav class=" navbar-default">
+  <div class="container-fluid " style="text-align: center;">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" style="text-align: center;">  
+      	<div class="content " style="text-align: center;" >
+          <h1>
+      			Game Cards
+          </h1>
+     	  </div>			 
+      <a class="fixed btn ns menu" id="menu">
+        <img src="https://i.imgur.com/CK01HTW.png" alt="menu" title="menu" width="70px" height="70px">
+      </a>
+    </div>
+   </nav>
+   <section class="subnav">
+     <div class="text-center subnav">
+       <div class="content">
+         <a class="btn mat on " href="https://dbz.space/cards/" title="List">List</a>
+         <a class="btn mat" href="https://dbz.space/cards/categories">Categories</a>
+         <a class="btn mat" href="https://dbz.space/cards/drops" title="Drops">Drops</a>
+         <a class="btn mat" href="https://dbz.space/cards/schedule" title="Schedule">Schedule</a>
+         <a class="btn mat" href="https://dbz.space/cards/inactive" title="Inactive">Inactive</a>
+         <a class="btn mat" href="https://dbz.space/cards/extreme-z" title="Extreme Z">Extreme Z</a>
+       </div>
+     </div>
+    <section class="filter_triggers">
+    	<div class="content">
+    		<div class="btn mat" action="g1">
+    			<i class="material-icons">sort_by_alpha</i>
+    		</div>
+    		<div class="btn mat" action="g2">
+    			<i class="material-icons">search</i>
+    		</div>
+    		<div class="btn mat reset disable" action="reset">
+    			<i class="material-icons">reply_all</i>
+    		</div>
+    	</div>
+    </section>
+    <section class="filters g1 notranslate">
+    	<div class="content">
+    		<div class="filter">
+    			<div class="content"></div>
+    				<label for="card_order">Short</label>
+    				<select id="card_order" class="mat">
+    					<option value="1">Character, Card</option>
+    					<option value="2" selected>AVG</option>
+    					<option value="3">HP</option>
+    					<option value="4">ATK</option>
+    					<option value="5">DEF</option>
+    					<option value="6">SA Level1</option>
+    					<option value="7">Card ID</option>
+    				</select>
+    	    </div>
+    	    <div class="filter">
+    	    	<div class="content">
+    	    		<label for="card_state">State</label>
+    	    		<select id="card_state" class="mat">
+    	    			<option value="base_init">Base Min</option>
+    	    			<option value="base_max">Base Max</option>
+    	    			<option value="awoken:max">Awoken Max</option>
+    	    			<option value="pot_max" selected>Potencial Max</option>
+					</select>
+    	   		 </div>
+    		</div>
+    		<div class="filter">
+          <div class="content">
+    			<label for="Card_vd">Display</label>
+    			<select id="Card_vd" class="mat">
+    				<option value="2" selected>AVG</option>
+    				<option value="3">HP</option>
+    				<option value="4">ATK</option>
+    				<option value="5">DEF</option>
+    				<option value="6">SA Level1</option>
+    				<option value="7">Card ID</option>
+				</select>
+      </div>
+    		<div class="filter"></div>
+    	   </div>
+    	</div>
+    </section>
+
+
+   
+
+
+
+
+  <div class="container" style="height: 1180px; width: 1258px;">
+    <div class="row">
+          <div class="col-lg-1 col-md-2 col-xs-4" style=>
+            <div class="item card cb25 eb22 rb5 d0" res="1012160" base="1012161" aim="" quantity="" release="" imgur="UJ5XfFB" ele="2" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="boujacklr.jpg" style="height: 101.44px; width: 101.44px;">
+    
+             
+            </div>
+          </div>
+            
+  
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb45 eb14 rb5 d0" res="1011720" base="1011721" aim="" quantity="" release="" imgur="4Z8hDn0" ele="4" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="trunkslr.jpg"style="height: 101.44px; width: 101.44px;">
+            
+            
+          	</div>
+    	  </div> 
+    	  <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb20 rb5 d0" res="1010160" base="1010161" aim="" quantity="" release="" imgur="yK0wNs3" ele="0" type="2" style="height: 108.18px; width: 109.06px;">
+              <img class="thumb on" src="vegettalr.jpg" style="height: 101.44px; width: 101.44px;">
+            
+             
+          	</div>
+          </div>
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb10 rb5 d0" res="1011640" base="1011641" aim="" quantity="" release="" imgur="6HVwKtr" ele="0" type="1" style="height: 108.18px; width: 109.06px;">
+                <img class="thumb on" src="gohanytrunks.jpg" style="height: 101.44px; width: 101.44px;">
+             
+            
+          </div>
+     
+  		 </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb21 rb5 d0" res="1011140" base="1011141" aim="" quantity="" release="" imgur="XyIviml" ele="1" type="2" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="gohanlr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="blackyzamas.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>   
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="gokulr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1010440" base="1010441" aim="" quantity="" release="" imgur="bBaJT8A" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="brolylr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+
+      <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="freezerlr.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+
+
+ 		</div>
+       <div class="row">
+            
+  
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb45 eb14 rb5 d0" res="1011720" base="1011721" aim="" quantity="" release="" imgur="4Z8hDn0" ele="4" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="Piccololr.jpg"style="height: 101.44px; width: 101.44px;">
+            
+            
+            </div>
+           </div> 
+        <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb20 rb5 d0" res="1010160" base="1010161" aim="" quantity="" release="" imgur="yK0wNs3" ele="0" type="2" style="height: 108.18px; width: 109.06px;">
+              <img class="thumb on" src="vegitoLr.jpg" style="height: 101.44px; width: 101.44px;">
+            
+             
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb10 rb5 d0" res="1011640" base="1011641" aim="" quantity="" release="" imgur="6HVwKtr" ele="0" type="1" style="height: 108.18px; width: 109.06px;">
+                <img class="thumb on" src="MrSatanLr.jpg" style="height: 101.44px; width: 101.44px;">
+             
+            
+          </div>
+     
+          </div>
+
+
+         <div class="col-lg-1 col-md-2 col-xs-4">
+         <div class="item card cb15 eb21 rb5 d0" res="1011140" base="1011141" aim="" quantity="" release="" imgur="XyIviml" ele="1" type="2" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="GohanChamacoLr.jpg" style="height: 101.44px; width: 101.44px;">
+          </div>
+         </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="GokuDiasLr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>   
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="AndroiderLr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1010440" base="1010441" aim="" quantity="" release="" imgur="bBaJT8A" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="Gogetastr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+
+      <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="cellteq.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="brollystr.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+      
+
+
+    </div>
+         <div class="row">
+            
+  
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb45 eb14 rb5 d0" res="1011720" base="1011721" aim="" quantity="" release="" imgur="4Z8hDn0" ele="4" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="omegashenron.jpg"style="height: 101.44px; width: 101.44px;">
+            
+            
+            </div>
+           </div> 
+        <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb20 rb5 d0" res="1010160" base="1010161" aim="" quantity="" release="" imgur="yK0wNs3" ele="0" type="2" style="height: 108.18px; width: 109.06px;">
+              <img class="thumb on" src="vegitoteq.jpg" style="height: 101.44px; width: 101.44px;">
+            
+             
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb10 rb5 d0" res="1011640" base="1011641" aim="" quantity="" release="" imgur="6HVwKtr" ele="0" type="1" style="height: 108.18px; width: 109.06px;">
+                <img class="thumb on" src="freezerphy.jpg" style="height: 101.44px; width: 101.44px;">
+             
+            
+          </div>
+     
+          </div>
+
+
+         <div class="col-lg-1 col-md-2 col-xs-4">
+         <div class="item card cb15 eb21 rb5 d0" res="1011140" base="1011141" aim="" quantity="" release="" imgur="XyIviml" ele="1" type="2" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="gokuss3agl.jpg" style="height: 101.44px; width: 101.44px;">
+          </div>
+         </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="vegetass3str.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>   
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="gohanint.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1010440" base="1010441" aim="" quantity="" release="" imgur="bBaJT8A" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="Gogetass4.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+
+      <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="kidbuphy.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="blackstr.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+      
+
+
+    </div>asdad
+      <div class="row">
+            
+  
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb45 eb14 rb5 d0" res="1011720" base="1011721" aim="" quantity="" release="" imgur="4Z8hDn0" ele="4" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="ultrainstict.jpg"style="height: 101.44px; width: 101.44px;">
+            
+            
+            </div>
+           </div> 
+        <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb20 rb5 d0" res="1010160" base="1010161" aim="" quantity="" release="" imgur="yK0wNs3" ele="0" type="2" style="height: 108.18px; width: 109.06px;">
+              <img class="thumb on" src="goldenfreezer.jpg" style="height: 101.44px; width: 101.44px;">
+            
+             
+            </div>
+          </div>
+          <div class="col-lg-1 col-md-2 col-xs-4">
+            <div class="item card cb05 eb10 rb5 d0" res="1011640" base="1011641" aim="" quantity="" release="" imgur="6HVwKtr" ele="0" type="1" style="height: 108.18px; width: 109.06px;">
+                <img class="thumb on" src="vegetass4.jpg" style="height: 101.44px; width: 101.44px;">
+             
+            
+          </div>
+     
+          </div>
+
+
+         <div class="col-lg-1 col-md-2 col-xs-4">
+         <div class="item card cb15 eb21 rb5 d0" res="1011140" base="1011141" aim="" quantity="" release="" imgur="XyIviml" ele="1" type="2" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="vegitosagamajin.jpg" style="height: 101.44px; width: 101.44px;">
+          </div>
+         </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+          
+            <img class="thumb on" src="janembastr.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>   
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb15 eb11 rb5 d0" res="1007470" base="1007471" aim="" quantity="" release="" imgur="ynA8tsr" ele="1" type="1" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="billsteq.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+       </div>
+
+
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1010440" base="1010441" aim="" quantity="" release="" imgur="bBaJT8A" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="janenmbaint.jpg" style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+
+      <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="kidbuint.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+       <div class="col-lg-1 col-md-2 col-xs-4">
+        <div class="item card cb35 eb23 rb5 d0" res="1009380" base="1009381" aim="" quantity="" release="" imgur="rupFUPY" ele="3" type="2" style="height: 108.18px; width: 109.06px;">
+            <img class="thumb on" src="super17.jpg"style="height: 101.44px; width: 101.44px;">
+        </div>
+      </div>
+      
+
+
+    </div>
+
+
+	</div>
+
+
+
+
+
+<script src="js/bootstrap.js"></script>
+</body>
+</html>
